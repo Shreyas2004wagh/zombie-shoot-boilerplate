@@ -1,8 +1,8 @@
-// Iteration 1: Declare variables required for this game
+
 const gamebody = document.getElementById("game-body");
-var seconds = document.getElementById("timer").textContent; // Changed variable name to avoid confusion
+var seconds = document.getElementById("timer").textContent; 
 const lives = document.getElementById("lives");
-let zombieId = 0; // Changed 'var' to 'let' for better scoping
+let zombieId = 0;
 const img = [
     "zombie-1.png",
     "zombie-2.png",
@@ -12,7 +12,7 @@ const img = [
     "zombie-6.png",
 ];
 
-// Iteration 1.2: Add shotgun sound
+
 const shotgunSound = new Audio("./assets/shotgun.wav");
 
 gamebody.onclick = () => {
@@ -21,16 +21,14 @@ gamebody.onclick = () => {
     shotgunSound.play();
 };
 
-// Iteration 1.3: Add background sound
 const backgroundSound = new Audio("./assets/bgm.mp3");
 backgroundSound.play();
 backgroundSound.loop = true;
 
-// Iteration 1.4: Add lives
 const maxlives = 4;
-let nooflives = 4; // Changed 'var' to 'let' for better scoping
+let nooflives = 4;
 
-// Iteration 2: Write a function to make a zombie
+
 function makeZombie(zombieId) {
     let randomImage = img[getRandomInt(0, img.length)];
     gamebody.innerHTML += `<img src="./assets/${randomImage}" class="zombie-image" id="zombie${zombieId}">`;
@@ -53,7 +51,7 @@ function checkCollision(zombie) {
 function zombieDestroy(zombie) {
     zombie.style.display = "none";
     zombieId++;
-    makeZombie(zombieId); // Pass the new zombieId when making a new zombie
+    makeZombie(zombieId); 
 }
 
 var timer = setInterval(() => {
@@ -74,7 +72,7 @@ var timer = setInterval(() => {
 makeZombie(zombieId);
 
 function getRandomInt(min, max) {
-    min = Math.ceil(min); // min should be exclusive
-    max = Math.floor(max); // max is inclusive
+    min = Math.ceil(min); 
+    max = Math.floor(max); 
     return Math.floor(Math.random() * (max - min)) + min;
 }
